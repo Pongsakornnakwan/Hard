@@ -1,0 +1,30 @@
+﻿@page "/Customer"
+
+@if (Data != null)
+{
+
+    <MudTable Items="@Data" Hover="true" Breakpoint="Breakpoint.Sm" LoadingProgressColor="Color.Info">
+    <HeaderContent>
+            <MudTh>name1</MudTh>
+            <MudTh>name2</MudTh>
+            <MudTh>sex</MudTh>
+            <MudTh>age</MudTh>
+     </HeaderContent>
+        <RowTemplate>
+            <MudTd DataLabel="name1">@context.name1</MudTd>
+            <MudTd DataLabel="name2">@context.name2</MudTd>
+            <MudTd DataLabel="sex">@context.Sex</MudTd>
+            <MudTd DataLabel="age">@context.Age</MudTd>
+        </RowTemplate>
+    </MudTable>
+
+}
+
+@code {
+    List<Customer> Data = new List<Customer>();
+
+    protected override void OnInitialized()
+    {
+        Data = CustomerService.GetAllCustomer();
+    }
+}
