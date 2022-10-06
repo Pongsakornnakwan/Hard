@@ -1,6 +1,6 @@
 ﻿namespace Demo2.Data
 {
-    public class Class_custumer
+    public class customer
     {
         public int id { get; set; }
         public string name1 { get; set; }

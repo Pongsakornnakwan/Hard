@@ -11,7 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 StaticWebAssetsLoader.UseStaticWebAssets(builder.Environment, builder.Configuration);
 
 ConfigurationManager config = builder.Configuration;
-GbVer.ConnectionString = config["connectionString:conStr1"];
+GbVer.ConnectionString = config["ConnectionStrings:ConStr1"];
 
 
 // Add services to the container.
@@ -20,6 +20,7 @@ builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddMudServices();
 builder.Services.AddScoped<ICustomerService, CustomerService>();
+builder.Services.AddScoped<IProductService, ProductService>();
 
 var app = builder.Build();
 

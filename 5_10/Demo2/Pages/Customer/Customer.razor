@@ -4,27 +4,28 @@
 {
 
     <MudTable Items="@Data" Hover="true" Breakpoint="Breakpoint.Sm" LoadingProgressColor="Color.Info">
-    <HeaderContent>
+        <HeaderContent>
             <MudTh>name1</MudTh>
             <MudTh>name2</MudTh>
             <MudTh>sex</MudTh>
             <MudTh>age</MudTh>
-     </HeaderContent>
+        </HeaderContent>
         <RowTemplate>
             <MudTd DataLabel="name1">@context.name1</MudTd>
             <MudTd DataLabel="name2">@context.name2</MudTd>
-            <MudTd DataLabel="sex">@context.Sex</MudTd>
-            <MudTd DataLabel="age">@context.Age</MudTd>
+            <MudTd DataLabel="sex">@context.sex</MudTd>
+            <MudTd DataLabel="age">@context.age</MudTd>
         </RowTemplate>
     </MudTable>
 
 }
 
 @code {
-    List<Customer> Data = new List<Customer>();
+    List<customer> Data = new List<customer>();
 
     protected override void OnInitialized()
     {
-        Data = CustomerService.GetAllCustomer();
+        Data = customerService.GetAllCustomer();
+        StateHasChanged();
     }
 }

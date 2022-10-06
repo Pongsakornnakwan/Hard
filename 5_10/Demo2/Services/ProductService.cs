@@ -5,23 +5,23 @@ using Npgsql;
 
 namespace Demo2.Services
 {
-    public interface ICustomerService
+    public interface IProductService
     {
-        List<customer> GetAllCustomer();
+        List<product> GetAllProduct();
     }
-    public class CustomerService : ICustomerService
+    public class ProductService : IProductService
     {
 
-        public List<customer> GetAllCustomer()
+        public List<product> GetAllProduct()
         {
-            List<customer> Res = new List<customer>();
+            List<product> Res = new List<product>();
             try
             {
                 using (NpgsqlConnection con = new NpgsqlConnection(GbVer.ConnectionString))
                 {
                     con.Open();
-                    string SQL = "select * from customer order by name1";
-                    Res = con.Query<customer>(SQL).ToList();
+                    string SQL = "select * from product order by code";
+                    Res = con.Query<product>(SQL).ToList();
                 }
             }
             catch (Exception ex)
